@@ -1,0 +1,53 @@
+{
+  "name": "ts3_2mvcmysqllib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc & node dist/index.js",
+    "dev": "tsc & nodemon dist/index.js",
+    "sendLastDump": "tsc & node dist/database/lastDumpToMigration/loadLastDump.js",
+    "migrationToLastDump": "node_modules/.bin/db-migrate up loadDump",
+    "makeEmptyDatabase": "node_modules/.bin/db-migrate up library",
+    "vanishDataBase": "node_modules/.bin/db-migrate down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "@types/basic-auth": "^1.1.3",
+    "@types/csrf": "^3.1.0",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/express-mysql-session": "^2.1.3",
+    "@types/express-session": "^1.17.4",
+    "@types/mysql": "^2.15.20",
+    "@types/node": "^17.0.18",
+    "basic-auth": "^2.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csrf": "^3.1.0",
+    "csurf": "^1.11.0",
+    "db-migrate": "^0.11.13",
+    "db-migrate-mysql": "^2.2.0",
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "express-basic-auth": "^1.2.1",
+    "express-handlebars": "^6.0.2",
+    "express-mysql-session": "^2.1.7",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mysql2": "^2.3.3",
+    "mysqldump": "^3.2.0",
+    "node-cron": "^3.0.0",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/csurf": "^1.11.2",
+    "@types/node-cron": "^3.0.1"
+  }
+}

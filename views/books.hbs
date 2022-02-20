@@ -1,0 +1,42 @@
+<section id="main" class="main-wrapper">
+	<div class="container">
+		<div id="content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+			{{#if search}}
+			<div style="justify-content: center;">результаты поиска {{search.searchParam}}</div>
+			{{/if}}
+			{{#if books.length}}
+			{{#each books}}
+			<div data-book-id={{id}} class="book_item col-xs-6 col-sm-3 col-md-2 col-lg-2">
+				<div class="book">
+					<a href="/book/{{id}}"><img src={{img}} alt={{name}}>
+						<div data-title={{name}} class="blockI" style="height: 46px;">
+							<div data-book-title={{name}} class="title size_text">{{name}}</div>
+							<div data-book-author={{authors}} class="author">{{authors}}</div>
+						</div>
+					</a>
+					<a href="/book/{{id}}">
+						<button type="button" class="details btn btn-success">Читать</button>
+					</a>
+				</div>
+			</div>
+			{{/each}}
+			{{/if}}
+		</div>
+	</div>
+	{{#if pagination.required}}
+	<div id="pagination" style="display: flex;justify-content:space-around;width:15%;margin:0 auto">
+		{{#unless pagination.first_page}}
+		<a href="/?pageDown={{pagination.offset}}">
+			<button type="button" class="btn btn-success">назад</button>
+		</a>
+		{{/unless}}
+		{{#unless pagination.last_page}}
+		<div class="btn-group" role="group" aria-label="Basic outlined example">
+			<a href="/?pageUp={{pagination.offset}}">
+				<button type="button" class="btn btn-success">вперед</button>
+			</a>
+			{{/unless}}
+		</div>
+	</div>
+	{{/if}}
+</section>
